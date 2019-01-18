@@ -44,9 +44,11 @@ INIT number equals 1
 
  INPUT phonebook data to phoneDB
  INPUT search string
- FIND search string in phoneDB where search string equals phoneDB name property
- FIND search string in phoneDB where search string equals phoneDB phone property
- RETURN matching search string(s) in phonebook data
+ CALL filter on phoneDB
+  IF searchString == currentPhoneDB
+   THEN save nameProperty OR phoneProperty
+ END filter
+ RETURN filter results
 
 
  >Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
