@@ -1,0 +1,190 @@
+Exercises
+
+1. In your own words, explain what clean code is and why it is important.
+   A:
+   Clean code is when you write maintainable and readable code. This is
+   important to help others understand your code in case they want to
+   contribute to it, etc. This is also important for yourself because
+   when you go back to code you wrote some years ago, you will need to understand it.
+
+2. Read this article about Toyota and their use of bad code. Although you
+   may not yet understand all of the topics discussed, think about another
+   commonly used object that relies on computers and explain what would
+   happen if the code was not created to an acceptable standard.
+   A:
+   It is unfortunate that Toyota didn't follow best practices when it came to
+   Software/hardware and lives were lost in result of it.
+   Another commonly used item that replies on computers is hospital equipment.
+   Hospital equipment can range from heart beat monitors to the brain/body scan
+   machines. If the code in the system was not created in an acceptable standard,
+   patients would be misdiagnosed/undiagnosed and lives can be lost if fault code
+   existed in these systems.
+
+3. Would you consider the following to be clean code? Explain why or why not.
+   If not, refactor the code.
+   A:
+   No, the function name is not meaningful and the pseudocode is too verbose.
+   Comments should not be necessary in this function because we should be able to
+   understand the code through the pseudocode itself.
+
+       FUNCTION convertToCelsius(temp)
+           SET convertedTemp to (temp-32) * (5/9)
+           PRINT convertedTemp
+       END FUNCTION
+
+       FUNCTION convertToFahrenheit(temp)
+           SET convertedTemp to (x * 1.8) + 32
+           PRINT convertedTemp
+       END FUNCTION
+
+4. Would you consider the following to be clean code?
+   Explain why or why not. If not, refactor the code.
+   A:
+   Yes, I consider the function to be clean code because the function name
+   is meaningful and the code is readable, understandable, and concise.
+
+5. Using pseudocode, refactor the code for the following examples using the principles
+   you have learned in this checkpoint.
+
+   A) The following function prints the subtotal of a customer's transaction and receives payment accordingly.
+
+        SET calcAmountDue to
+          FUNCTION(subTotal, discountRate, paymentType)
+            SET totalDue to subTotal * discountRate + (subTotal * tax)
+            RETURN totalDue
+          END FUNCTION
+
+        FUNCTION showPaymentDue()
+          PRINT "Your total due is: + calcAmountDue
+        END FUNCTION
+
+        FUNCTION confirmCheckOut(paymentType)
+          IF paymentType = 'Cash' THEN
+            CALL getPayment RETURNING amount
+            PRINT "Change due: " + amount - calcAmountDue
+          ELSE IF paymentType= 'Credit Card' THEN
+            PRINT "Your credit card has been charged: "  + calcAmountDue
+          END IF
+        END FUNCTION
+
+    B) The following function checks out a book if there are no issues with the guest's account.
+
+          FUNCTION checkoutBook(book, guest)
+            IF guest.outstandingFees > 0 THEN
+                PRINT guest + "has outstanding fees."
+            ELSE IF guest.hasOverdueBooks THEN
+                PRINT guest + "has overdue books."
+            ELSE IF guest.accountActive THEN
+                 APPEND book to guest.books
+                 SET book.status to "Checked Out"
+                 PRINT "Your books have been issued."
+             ELSE
+                 PRINT "Account is not active."
+             END IF
+          END FUNCTION
+
+      C) The following class is a code snippet that should support the transactions a customer can perform at an ATM.
+
+         CLASS BankAccountActions
+             FUNCTION displayBalance
+                PRINT balance
+             END FUNCTION
+
+             FUNCTION deposit(amount)
+                SET balance to balance + amount
+             END FUNCTION
+
+             FUNCTION withdraw(amount)
+                IF balance > amount THEN
+                  SET balance to balance - amount
+                END IF
+             END FUNCTION
+         END CLASS
+
+         CLASS Offers
+             FUNCTION creditCardOffer
+                 IF NOT(customer.hasCreditCard) THEN
+                     CALL offerCreditCard
+                 END
+             END FUNCTION
+
+             FUNCTION checkStatus
+                 IF NOT(customer.hasCheckingAccount) THEN
+                     CALL offerCheckingAccount
+                 END
+             END FUNCTION
+          END CLASS
+
+
+Programming Questions
+
+6. Square Given an array of integers, find out whether the sum of the integers is a perfect square.
+   If it is a perfect square, return the square root, otherwise return the sum.
+    //////////////////////////////////////////////////////
+
+       Pseudocode:
+
+         SET arr1 to array of integers
+
+         FUNCTION squareable(arr)
+            SET arrSum to CALL reduce WITH arr
+            SET arrSqrtRoot to CALL Math.sqrt WITH arrSum
+            IF (arrSqrtRoot % 1 === 0)
+              RETURN arrSqrtRoot
+            ELSE
+              RETURN arrSUM
+          END FUNCTION
+    //////////////////////////////////////////////////////
+
+        Code:
+
+        var arr1 = [10,1,4,6,1,1,2];
+
+        function squareable(arr){
+          var arrSum = arr.reduce((acc, cur) => acc + cur);
+          var arrSqrtRoot = Math.sqrt(arrSum);
+          var remainder = arrSqrtRoot % 1;
+
+          remainder === 0 ? console.log(arrSqrtRoot) :  console.log(arrSum);
+        }
+
+        squareable(arr)1;
+
+7. Duplicate Given an array of integers, find out whether the array contains any duplicate elements.
+   The function should return true if any value appears at least twice in the array, and false if every element is distinct.
+   //////////////////////////////////////////////////////
+
+      Pseudocode:
+
+      SET arr1 to array of integers
+      SET checkList to [] empty array
+
+      FUNCTION findDuplicates(arr1)
+        FOR each integer in arr1
+          IF integer in arr1 CALL includes WITH checkList
+            RETURN true
+          ELSE
+            CALL push integer in arr1 WITH checkList
+        END LOOP
+        RETURN false
+      END FUNCTION
+
+//////////////////////////////////////////////////////
+
+      Code:
+
+      var arr1 = [10,4,6,2,3,3];
+      var checkList= [];
+
+      function getDuplicate(arr1){
+       for(var i=0; i < arr1.length; i++){
+         if(checkList.includes(arr1[i])){
+           return true;
+         }
+         checkList.push(arr1[i]);
+       }
+        return false;
+      }
+
+
+      console.log(getDuplicate(arr1));
