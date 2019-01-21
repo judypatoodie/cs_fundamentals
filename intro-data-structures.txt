@@ -1,0 +1,61 @@
+Exercises
+
+1. A line of people at an amusement park ride.
+
+      a) Use an array input: ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
+
+         A: var peopleInLine=  ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+      b)Insert a new person, "Mary" at the end of the line. In other words, you
+        should insert Mary after Mike.
+
+        A: peopleInLine.push("Mary");
+
+      c) Find a person in line named "Josh." This function should return the position of 2 in the array.
+
+        A: peopleInLine.findIndex(person => person =="Josh")
+
+      d) Find a person in line named "Emily." What should your function return if it does not find
+         the item in the array?
+
+        A:
+           function findPerson(arr, personsName){
+              if(arr.includes(personsName)){
+                return personsName + " exists in array"
+                }
+                return personsName + " is not in the array"
+              }
+
+            console.log(findPerson(peopleInLine, 'Emily'))
+
+      e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you
+         code this so Melissa appears before Ava?
+
+         A:
+           peopleInLine.splice(1, 0, "Melissa");
+
+           console.log(peopleInLine)
+
+      f) If Patrick wants to leave the line, how would you delete him from the array?
+
+        A:
+
+          function removeFromArr(array, element) {
+          return array.filter(e => e !== element);
+          };
+
+          console.log(removeFrmArr(peopleInLine, "Patrick"));
+
+2. Provide another real-world example that you can model using a data structure.
+
+  A: Fruits in a basket.
+     - Array input for fruits ["Apple", "Banana", "Cherry", "Mango", "Peach"]
+     - The basket contains fruits, represented as strings.
+     - Fruits are in no alphabetical order
+     - When someone eats a fruit, the fruit is removed from the basket.
+     - Fruits can be added to the basket
+
+3. How would your data structure allow developers to access and manipulate the data?
+
+  A: Developers can access my data structure by accessing the names of strings of fruit names in the
+     array. Developers can manipulate the data by adding and removing fruits (string elements) in the basket (array).
