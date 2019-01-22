@@ -1,0 +1,97 @@
+Exercises
+
+1. What is the main difference between a stack and a queue?
+
+   A: A stack is last in first out, whereas a queue is first in first out.
+
+2. What are the similarities between stacks and queues?
+
+   A: They are both data structures that contain a collection of elements.
+      Since stacks are last in first out, you can use two operations called
+      push(inserts item at the top of the stack), and pop
+      (removes item from stop of stack). To add and remove from Queues, you
+      can use enqueue (add to the end of the list), and dequeue (removes and
+      returns next element in order).
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options
+   in a word processor such as Microsoft Word. Which data structure would you use
+   for each option and why?
+
+   A: I would use the Stack data structure to implement the UNDO and REDO option
+      in a word processor. I would use Stack because of it's last in first out
+      rule. To UNDO, you would want to remove the last change you made out of
+      your word document (last in first out). Abstractly speaking, to REDO you
+      would find the LAST Undo from the list of "UNDOS" and remove it from that
+      list of "UNDOS".
+
+Programming Questions
+
+  1. Given a string, reverse it using a stack. For example, the string "Bloc!"
+     should be converted to "!colB".
+
+     A:
+         function reverseWord(word) {
+            var newWord = "";
+            for (var i = word.length - 1; i >= 0; i--) {
+              newWord += word[i];
+            }
+              return newWord;
+          }
+
+          console.log(reverseWord('Bloc!'));
+
+    2. Implement the pop method of a stack using one queue. Make a FIFO data
+       structure mirror the functionality of a LIFO data structure.
+       Implement the enqueue and dequeue methods defined in the checkpoint
+       inside your own Queue class.
+
+       A:
+
+
+       class Queue {
+          constructor(){
+            // added this.list array
+            this.list = [];
+          }
+
+          enqueue(element){
+            this.list.push(element);
+            return this.list;
+          }
+
+          dequeue(){
+            if (this.list.length === 0){
+              return 'This list is empty';
+            }
+            return this.list.shift();
+          }
+
+
+          pop(){
+            for(var i = 0; i < this.list.length-1; i++){
+                this.enqueue(this.dequeue());
+            }
+            return this.dequeue();
+          }
+        }
+
+
+        var newList = new Queue();
+
+        newList.enqueue("a")
+        newList.enqueue("b")
+        newList.enqueue("c")
+        newList.enqueue("e")
+        newList.enqueue("f")
+        // test dequeue method
+        let firstElement = newList.dequeue();
+        console.log(`Removed first element '${firstElement}' successfully!`);
+
+
+        // test pop method
+        let lastElement= newList.pop();
+        console.log(`Removed last element '${lastElement}' successfully!`)
+
+
+        // show new list after the above methods were tested
+        console.log(`This is the new list' + '${newList.list}'`)
