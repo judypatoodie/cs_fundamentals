@@ -49,11 +49,12 @@ Exercises
    A) The following function prints the subtotal of a customer's transaction and receives payment accordingly.
 
         FUNCTION checkOutCustomer(subTotal, discountRate, paymentType)
+        var applyDiscount= subTotal * discountRate + (subTotal * tax);
             IF paymentType = 'CASH' THEN 
-                PRINT "Change due: " + amount - subTotal * discountRate + (subTotal * tax)
+                PRINT "Change due: " + amount - applyDiscount
             ELSE IF paymentType = 'CREDIT CARD' THEN
                 CALL getPayment RETURNING amount
-                PRINT "Your credit card has been charged: " + subTotal * discountRate + (subTotal * tax)
+                PRINT "Your credit card has been charged: " + applyDiscount
             END IF
          END FUNCTION
 
