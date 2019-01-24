@@ -1,0 +1,221 @@
+Exercises
+
+  1. What are some pros and cons of using linked lists instead of arrays?
+       Pros of Linked Lists:
+       - Linked lists are faster performance wise when it comes to insertion
+         and deletions
+       - Dynamic and flexible, they can expand and contract its size
+       - Memory is allocated during execution or runtime
+
+       Cons of Linked Lists:
+       - Random access is not allowed- you have to access elements sequentially
+         starting from the first node (head). Can't do binary searches.
+       - Extra memory space for a pointer is required for each element
+       - Arrays have better cache locality
+
+  2. Come up with a real world example of a linked list.
+       - Web browsers history using the back and forward button in your browser.
+       - A line (queue) of people at a store.
+
+Programming Questions
+
+  1. The linked list push function should take a value, create a node, and add
+     it to the end of a list. Below is pseudocode for a push function for a
+     singly linked list. However, there is something wrong with it. Submit both
+     an explanation of the bug and a functional implementation of the method.
+
+     A: The pseudocode provided did not include the ability to add another node
+        to the end of the list. The follow pseudocode includes the while loop
+        to add another node.
+
+        Pseudocode:
+
+           FUNCTION push(element)
+             CREATE NODE
+             SET node.value to element
+             SET node.next to null
+
+             IF the head does not exist
+                THEN SET head to node
+             ELSE
+                SET currentNode to head
+
+                WHILE currentNode.next exists
+                  SET currentNode = currentNode.next
+                ELSE currentNode.next = node
+                END WHILE
+              END IF
+            END FUNCTION
+
+        Code:
+
+          function LinkedList(){
+            this.head = null;
+          }
+
+          LinkedList.prototype.push = function(val){
+              var node = {
+                 value: val,
+                 next: null
+              }
+              if(!this.head){
+                this.head = node;
+              }
+              else{
+                currentNode = this.head;
+                while(currentNode.next){
+                  currentNode = currentNode.next;
+                }
+                currentNode.next = node;
+              }
+            }
+
+      2. Given an unsorted singly linked list, remove all duplicates from the
+         linked list.
+
+         A:
+
+          class Node {
+            constructor(data) {
+              this.data = data;
+              this.next = null;
+             }
+           }
+
+           class LinkedList {
+             constructor() {
+               this.head = null;
+             }
+
+             push(node) {
+               var current;
+               if(this.head == null){
+                 this.head = node;
+               } else{
+                 current= this.head;
+                 while(current.next){
+                   current=current.next;
+                 }
+                 current.next = node
+               }
+             }
+
+             removeDuplicates() {
+               var current = this.head;
+               while(current){
+                 var checkNext= current;
+                 while(checkNext.next){
+                   if (current.data == checkNext.next.data){
+                     checkNext.next = checkNext.next.next;
+                   } else {
+                     checkNext= checkNext.next;
+                   }
+                 }
+                 current= current.next;
+                 }
+               }
+
+
+             printList() {
+               var current = this.head;
+               var str = '';
+               while(current) {
+                  str += current.data +" " ;
+                current = current.next;
+               }
+               console.log(str);
+             }
+           }
+
+           const myList = new LinkedList();
+           const apple1 = new Node('apple');
+           const orange = new Node('orange');
+           const pear1 = new Node('pear');
+           const apple2 = new Node('apple');
+           const pear2 = new Node('pear');
+           // test add nodes
+           myList.push(apple1);
+           myList.push(orange);
+           myList.push(pear1);
+           myList.push(apple2);
+           myList.push(pear2);
+
+           //test remove duplicates
+           myList.removeDuplicates();
+
+           //print new linked list data
+           myList.printList();
+
+
+3. Given an unsorted singly linked list, reverse it.
+
+   A:
+
+    class Node {
+     constructor(data) {
+       this.data = data;
+       this.next = null;
+     }
+    }
+
+    class LinkedList {
+     constructor() {
+       this.head = null;
+     }
+
+    push(node) {
+
+       var current;
+       if(this.head == null){
+        this.head = node;
+
+       } else{
+        current= this.head;
+         while(current.next){
+           current=current.next;
+         }
+         current.next = node
+       }
+
+     }
+
+    reverseList(){
+     var current= this.head;
+     var nextNode= current;
+     var prev= null;
+
+       while(current){
+         nextNode= current.next;
+         current.next= prev;
+         prev = current;
+         current=nextNode;
+       }
+      this.head= prev;
+    }
+
+
+     printList() {
+       var current = this.head;
+       var str = '';
+       while(current) {
+          str += current.data +" " ;
+        current = current.next;
+       }
+       console.log(str);
+     }
+    }
+
+    const myList= new LinkedList();
+    const apple= new Node('apple');
+    const grape= new Node('grape');
+    const pear= new Node('pear');
+    const orange = new Node('orange');
+
+    myList.push(apple);
+    myList.push(grape);
+    myList.push(pear);
+    myList.push(orange);
+
+    myList.reverseList();
+
+    myList.printList();
