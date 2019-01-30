@@ -1,0 +1,91 @@
+1. Pseudo-code the following algorithms:
+   A:
+   - Making Coffee:
+     FUNCTION makeCoffee(coffee)
+       IF coffee = whole beans
+          THEN grind coffee to coffee grounds
+       END IF
+       GET kettle
+       TURN faucet ON
+       ADD water to kettle to boil
+       GET table spoon
+       GET coffee filter
+       ADD 2 table spoons of coffee grounds to coffee filter
+       GET string
+       TIE top of filter with string
+       GET clean mug
+       ADD filter to clean mug
+       WHILE water in mug is not full
+          ADD boiled water in mug
+       END WHILE
+       IF strong coffee preference is true
+          WAIT 4-5 mins
+          REMOVE coffee filter from mug
+       ELSE
+          WAIT 3-4 mins
+          REMOVE coffee filter from mug
+       END IF
+       SERVE mug of coffee
+     END FUNCTION
+
+     - Washing Dishes:
+       FUNCTION washDishes
+          IF sink contains dirty dishes
+            TURN sink faucet ON
+            GET soap and sponge
+            ADD soap on sponge
+            WHILE sink contains dirty dishes
+              SCRUB dishes
+              RINSE dishes
+              PLACE clean dishes on drying rack
+            END WHILE
+            WASH hands
+            TURN water OFF
+          END IF
+        END FUNCTION
+
+      - Doing Laundry:
+        FUNCTION doLaundry
+          IF basket contains dirty clothes && basket is full
+             PUT dirty clothes in washing machine
+             GET detergent
+             POUR 1 cup of detergent in washing machine
+             SET washing machine to normal settings
+             CLICK start on washing machine
+             WHILE washing machine's red light is on
+                WAIT
+             END WHILE
+             IF washing machine's green light is on
+                THEN laundry is done washing
+                TAKEOUT laundry from washing machine
+                PUT laundry in dryer
+                SET dryer to normal
+                CLICK start on dryer
+             END IF
+             WHILE dryer's red light is on
+                WAIT
+             END WHILE
+             IF dryer's green light is on
+                TAKEOUT laundry
+                FOLD laundry
+                PUT laundry in drawers
+             END IF
+          END IF
+        END FUNCTION
+
+
+2. Name three companies who created an algorithm that made them successful
+   A:
+   - Hotel Tonight: created search algorithm to find available hotels in a
+     specified location sorted by most affordable.
+   - Zendesk: created smooth integration between emails and many other
+     applications via their API's to sync with a ticketing platform
+     with built in analytics. The built in analytics allows support staff to
+     monitor, forecast, and allocate work efforts based on their ticket trends.
+   - Venmo: enabled quick payments to anyone, no matter what bank you have.
+
+3. Hypothesize about what constitutes an efficient algorithm versus an
+   inefficient algorithm.
+   A: A good algorithm must be fast and accurate. It must be space efficient-
+      only utilizing space that it needs. It should be as simple as possible.
+      It should display the correct results.
