@@ -29,7 +29,15 @@
    6. Polynomial growth O(n^k)
    7. Exponential Growth O(2^n)
 
-5. Determine the time complexity of the following snippet of code.
+5. Choose one of the algorithmic growth rates from the last question and make a 
+   comparison to a real-life situation.
+   A:
+   Orders in a sandwich restaurant result in a linear growth rate
+   because the time to do each n will would increase with the number of 
+   n sandwich orders. The number of steps required is directly related
+   to the number of sandwich orders inputted.
+
+6. Determine the time complexity of the following snippet of code.
    It is commonly known as a linear search.
 
     FUNCTION linearSearch(array, target)
@@ -43,7 +51,7 @@
 
     A: O(n) -The function runs based on the array size (n), a linear growth rate.
 
-6. Determine the time complexity of the following snippet of code.
+7. Determine the time complexity of the following snippet of code.
 
     FUNCTION foo(array)
      FOR each number in the array
@@ -55,7 +63,7 @@
 
     A: O(n^2) this is a quadratic growth because of the nested for each loop.
 
-7. Determine the time complexity of the following snippet of code. It is
+8. Determine the time complexity of the following snippet of code. It is
    commonly known as the Fibonacci sequence.
 
     FUNCTION fibonacci(number)
