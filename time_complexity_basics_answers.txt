@@ -1,0 +1,76 @@
+1. What is time complexity and what is its relation to algorithms?
+   A:
+   The Big O (function) that estimates the performance/time it takes for a
+   program to execute.
+
+2. What is runtime?
+   A:
+   Physical time duration of an algorithm from start to finish. 'Runtime'
+   synonymous with the term 'time complexity'
+
+3. How is the runtime of an algorithm calculated?
+   A:
+   It is calculated by Big O notation. Big O notation can give us a high level
+   understanding of the time complexity of an algorithm. Big O cares about the
+   general trends of the time complexity (linear, quadratic, constant. etc).
+   Big O basically is calculated by counting how many steps of computations get
+   executed given an input of some size. The lesser the number of steps, the
+   faster the algorithm.
+
+4. Name the six types of algorithm growth rates we saw in this checkpoint and
+   list them in order of most efficient to least efficient. Now Google another
+   algorithmic growth rate not covered and place it in the correct spot in your list.
+   A:
+   1. Constant Growth Rate O(1)
+   2. Logarithmic Growth Rate O(log n)
+   3. Linear Growth Rate O(n)
+   4. Log-linear Growth Rate O(n log n)
+   5. Quadratic Growth Rate O(n^2)
+   6. Polynomial growth O(n^k)
+   7. Exponential Growth O(2^n)
+
+5. Determine the time complexity of the following snippet of code.
+   It is commonly known as a linear search.
+
+    FUNCTION linearSearch(array, target)
+     FOR each number in the array
+       IF number = target THEN
+         RETURN true
+       END IF
+     END FOR
+     RETURN false
+    END FUNCTION
+
+    A: O(n) -The function runs based on the array size (n), a linear growth rate.
+
+6. Determine the time complexity of the following snippet of code.
+
+    FUNCTION foo(array)
+     FOR each number in the array
+       FOR each number in the array
+         print "Hello"
+       END FOR
+     END FOR
+    END FUNCTION
+
+    A: O(n^2) this is a quadratic growth because of the nested for each loop.
+
+7. Determine the time complexity of the following snippet of code. It is
+   commonly known as the Fibonacci sequence.
+
+    FUNCTION fibonacci(number)
+     IF number < 1 THEN
+       ERROR
+     ELSE IF number = 1 or 2 THEN
+       RETURN 1
+     ELSE
+       CALL fibonacci WITH number - 2 RETURNING twoBack
+       CALL fibonacci WITH number - 1 RETURNING oneBack
+       RETURN twoBack + oneBack
+     END IF
+    END FUNCTION
+
+  A: O(2^n) due to the recursion.
+
+8. Out of the code snippets you just saw, which is the most time efficient?
+   A: Linear Search
