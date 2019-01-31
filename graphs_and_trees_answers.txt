@@ -33,8 +33,11 @@
 
 6. What kind of graph is a binary search tree?
    A:
-   A directed, cyclic unweighted graph.
-
+   A directed, cyclic unweighted graph. The difference between a cyclic and
+   A-cyclic is that for cyclic, nodes may form a loop -performing Depth first searches
+   will result in the same nodes being revisited. A-cyclic means the nodes
+   do not form loops- performing a Depth first search will result in a dead end.
+   
 
 PROGRAMMING QUESTIONS:
 
@@ -170,7 +173,7 @@ class BinaryTree{
 
     function countNodes(currentNode, targetNode) {
       if (currentNode == null)
-        return -1;
+        return 0;
       if (currentNode.value == targetNode)
         return 0;
       var left = countNodes(currentNode.left, targetNode);
